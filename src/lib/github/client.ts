@@ -195,8 +195,18 @@ export class GitHubClient {
       .join('/');
 
     const url = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}?ref=${encodeURIComponent(ref)}`;
-    const response = await this.fetchWithTimeout(url);
+    let response = await this.fetchWithTimeout(url);
     this.checkRateLimits(response);
+
+    // If 404 and ref was 'main' or 'master', try the alternative common branch
+    if (response.status === 404 && (ref === 'main' || ref === 'master')) {
+      const fallbackRef = ref === 'main' ? 'master' : 'main';
+      const fallbackUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}?ref=${encodeURIComponent(fallbackRef)}`;
+      const fallbackRes = await this.fetchWithTimeout(fallbackUrl);
+      if (fallbackRes.ok) {
+        response = fallbackRes;
+      }
+    }
 
     if (!response.ok) {
       throw new GitHubApiError(`Failed to fetch file content for "${filePath}": ${response.statusText}`, response.status);
