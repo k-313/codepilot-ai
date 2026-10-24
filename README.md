@@ -3,6 +3,14 @@
 > **AI-Powered Codebase Review, Security Audit & Architectural Assistant**  
 > Ingest public GitHub repositories, detect potential vulnerabilities with precise line numbers, explain functions, suggest unit tests, and query architecture with grounded source citations.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20Production-8b5cf6?style=for-the-badge&logo=vercel)](https://codepilot-ai-murex.vercel.app)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16.4.3-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Drizzle%20ORM-336791?style=for-the-badge&logo=postgresql)](https://orm.drizzle.team/)
+[![CI Status](https://img.shields.io/badge/CI-Passing-emerald?style=for-the-badge&logo=githubactions)](.github/workflows/ci.yml)
+
+**🌐 Live Production URL**: [https://codepilot-ai-murex.vercel.app](https://codepilot-ai-murex.vercel.app)  
+**⚡ Alternate Deployment URL**: [https://codepilot-mdhc8puxn-akash965943-5393s-projects.vercel.app](https://codepilot-mdhc8puxn-akash965943-5393s-projects.vercel.app)
+
 ---
 
 ## 🌟 Highlights
