@@ -7,6 +7,7 @@ export default defineConfig({
   test: {
     environment: 'node',
     globals: true,
+    exclude: ['**/node_modules/**', '**/tests/e2e/**'],
     alias: {
       '@': path.resolve(process.cwd(), './src'),
     },
